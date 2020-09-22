@@ -1,0 +1,114 @@
+#color {
+    color: #88bdbc;
+    /* for background for section*/
+    color: #254e58;
+    /* for for sidebar*/
+    color: #112d32;
+    /* for header && footer*/
+    color: #4f4a41;
+    /* for main text && BOLD*/
+    color: #6e6658;
+    /* for for paragraph text*/
+}
+*{
+    color: #f5f5f5;
+}
+
+header {
+    width: 100%;
+    height: 110px;
+    background-color: #112d32;
+}
+
+header img {
+    float: left;
+    margin: 20px 40px;
+}
+
+header h1 {
+    font-size: 2em;
+    padding: 2% 0 0 0;
+}
+
+main{
+    height:682.4999px;
+}
+
+#liftside{
+    float: left;
+    height: 94%;
+    width: 20%;
+    background-color: #254e58;
+    margin: 1% 0 0 1%;
+}
+
+#liftside h2{
+font-size: 1.8em;
+font-weight: bold;
+margin: 7% 0 4% 20%;
+}
+
+ul{
+    display: block;
+    list-style-type: disc;
+    margin-top: 1em;
+    margin-bottom: 1 em;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 40px;
+}
+
+#liftside li{
+font-size: 1em;
+padding-top: 3%;
+}
+
+#rightArticle{
+    margin: 0 0 0 22%;
+    padding: 1%;
+}
+
+#holderImg{
+    padding: 1.4% 1.4% 2.5% 1.4%;
+    background-color: #254e58;
+}
+
+#holderImg img{
+    display: inline-block;
+    width: 32%;
+    height: 300px;
+}
+
+#holderImg #leftimg,#middleimg{
+    padding-right: 1.3%;
+
+}
+
+#holderP{
+
+    margin: 4% 0 0 0;
+    padding: 2%;
+    display: block;
+    background-color: #254e58;
+    height: 163px;
+}
+
+#holderP p{
+    font-size: 1.6em;
+}
+
+
+
+
+
+
+footer{
+    position: absolute;
+    width: 100%;
+    height: 90px;
+    background-color: #112d32;
+    text-align: center;
+}
+footer p{
+    padding: 2% 0 0 0;
+}
