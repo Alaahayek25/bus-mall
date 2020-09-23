@@ -310,7 +310,7 @@ function getData() {
         localStorage.setItem(String(atteptId), JSON.stringify(Product.all));
     }
 
-    // //////////// MainCode ///////////////
+    // /////// MainCode ///////
 
     divImg.addEventListener('click', handleClick);
     createObjects();
