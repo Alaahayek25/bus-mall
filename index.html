@@ -1,40 +1,50 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bus-mall</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
     <header>
-        <img id="logo" src="https://placehold.it/200x70" alt="">
-        <h1>Bus-Mall</h1>
+        <nav id='navHeader'>
+        </div>
+      <h1>Bus Mall</h1>
+      <ul>
+          <li class="liheader"><a href="index.html">Home</a></li>
+          <li class="liheader"><a href="">About us</a></li>
+          <li class="liheader"><a href="">Sales</a></li>
+      </ul>
+      <input id='searchBox' placeholder="Search.." type="search" name="" id="">
+  </nav>
     </header>
     <main>
-        <article id="liftside">
-            <h2>Results</h2>
-            <ul id="results">
+        <h1>Products Survey</h1>
+        <p>Please click on the product that you find more usefull</p>
+        <div id="divIMG">
+            <img class="displayImg" id='leftImg' src="" alt="" >
+            <img class="displayImg" id='midImg' src="" alt="">
+            <img class="displayImg" id='rightImg' src="" alt="">
+        </div>
+        <div id="divResult">
+            <h2>THE RESULT IS :</h2>
+            <ul id='ulResult'>
 
             </ul>
-        </article>
-        <article id="rightArticle">
-            <div id="holderImg">
-                <img id="leftimg" src="" alt="" title="">
-                <img id="middleimg" src="" alt="" title="">
-                <img id="rightimg" src="" alt="" title="">
-            </div>
-            <div id="holderP">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates error placeat est magni quidem similique amet minima sequi eum inventore. Tempora porro id quod minus quo inventore sed necessitatibus eius ut corrupti aliquam culpa ipsam, impedit enim non maiores vero recusandae nostrum laborum eveniet. Voluptatem, vel ea? Ullam quo sint fugiat quibusdam quaerat cumque delectus obcaecati eligendi repellendus! Consequuntur, minus labore veritatis ad earum quia dicta repudiandae maxime veniam perferendis ipsa reiciendis voluptates! Quibusdam error deleniti magni perferendis voluptates laborum non ipsam ea, at repellendus. Eveniet enim mollitia rem ratione aut natus dolorem, fugiat deleniti cum quis voluptate laudantium pariatur.</p>
-            </div>
-        </article>
+            
+        </div>
     </main>
-    <footer>
-        <p>Bus-Mall.2020</p>
-    </footer>
-    <script src="js/app.js" ></script>
+    <div id="divMyChart">
+        <canvas id="myChart"></canvas>
+        <hr>
+        <h1 id="h1PieChartTitle">a Pie chart discribe the most desired product <br> based on all the users surviy results</h1>
+        <canvas id="myPieChart"></canvas>
+    </div>
+    <footer></footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="Js/app.js"></script>
 </body>
-
 </html>
