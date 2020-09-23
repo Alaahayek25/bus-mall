@@ -134,7 +134,7 @@ function renderResult() {
     seassionEnd = true;
   }
 }
-// function to fill tow arrais with data so we use it later in chart
+/// function to fill tow arrais with data so we use it later in chart
 function fillDataSets() {
   desiered = [];
   totalClicks = [];
