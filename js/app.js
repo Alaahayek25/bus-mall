@@ -1,130 +1,248 @@
-  
 'use strict';
+var paths = [
+    'jpg',
+    'jpg',
+    'jpg',
+    'jpg',
+    'jpg',
+    'jpg',
+    'jpg',
+    'jpg',
+    'jpg',
+    'jpg',
+    'jpg',
+    'jpg',
+    'jpg',
+    'jpg',
+    'png',
+    'jpg',
+    'jpg',
+    'gif',
+    'jpg',
+    'jpg',
+];
 
-/* array type of extension */
-var extension = ['png', 'gif', 'jpg'];
-// console.log(extension);
+var products = [
+    'bag',
+    'banana',
+    'bathroom',
+    'boots',
+    'breakfast',
+    'bubblegum',
+    'chair',
+    'cthulhu',
+    'dog-duck',
+    'dragon',
+    'pen',
+    'pet-sweep',
+    'scissors',
+    'shark',
+    'sweep',
+    'tauntaun',
+    'unicorn',
+    'usb',
+    'water-can',
+    'wine-glass'
+];
+var colors = ['rgb(255, 99, 132)','rgb(255,0,0)','rgb(128,0,0)','rgb(255,255,0)','rgb(34,139,34)','rgb(0,128,128)','rgb(25,25,112)','rgb(0,0,255)','rgb(72,61,139)','rgb(255,0,255)','rgb(255,20,147)','rgb(139,69,19)','rgb(188,143,143)','rgb(47,79,79)','rgb(46,139,87)','rgb(50,205,50)','rgb(107,142,35)','rgb(154,205,50)','rgb(205,92,92)','rgb(255,215,0)','rgb(255,99,71)(255,99,71)','rgb(165,42,42)'];
+var totalClicks = [];
+var totalViews = [];
+var desiered = [];
+var leftImg = document.getElementById('leftImg');
+var midImg = document.getElementById('midImg');
+var rightImg = document.getElementById('rightImg');
+var divImg = document.getElementById('divIMG');
+var checkImg = document.getElementById('checkImg');
+var leftProduct,
+    rightProduct,
+    midProduct;
+var random1 = 0,
+    random2 = 0,
+    random3 = 0;
 
-/* this array that contain all products(images) each extension has array*/
-var png = ['sweep'];
-var gif = ['usb'];
-var jpg = [
-  'bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum'
-  , 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'pet-sweep'
-  , 'scissors', 'shark', 'tauntaun', 'unicorn', 'water-can', 'wine-glass'];
-
-/* this array that contain all products(images) */
-var products = [png, gif, jpg];
-
-// console.table(products);
-
-var totalClicks = 0;
-var numberOfRounds = 25;
-
-
-/* get the img by id */
-var leftimg = document.getElementById('leftimg');
-var middleimg = document.getElementById('middleimg');
-var rightimg = document.getElementById('rightimg');
-var holderImg = document.getElementById('holderImg');
-
-/* create constructor function for the product */
-function Product(name) {
-  this.productName = name;
-  this.imgPath = `img/${name}.${extension[i]}`;
-  this.clicks = 0;
-  this.shows = 0;
-  Product.all.push(this);
-}
+var rounds = 0;
+var seassionLength = 25;
+var seassionEnd = false;
 Product.all = [];
-
-/* instantiate objects for all the goats one shot */
-
-for (var i = 0; i < products.length; i++){
-
-  for (var j = 0; j < products[i].length; j++){
-    new Product((products[i])[j]);
-  }
+// the Constructor
+function Product(prodName, prodImgPath) {
+    this.name = prodName;
+    this.path = prodImgPath;
+    this.clicks = 0;
+    this.views = 0;
+    this.round_ID;
+    Product.all.push(this)
 }
-// console.table(Product.all);
-
-/* render 3 random img */
-var leftProduct, middleProduct ,rightProduct;
-
-function renderImg() {
-
-  /* (do while) to makesure the isn't same random Number( same img) */
-  do {
-    var randomNumber1 = randomNumber(0,Product.all.length-1);
-    var randomNumber2 = randomNumber(0,Product.all.length-1);
-    var randomNumber3 = randomNumber(0,Product.all.length-1);
-  } while (randomNumber1 === randomNumber2 || randomNumber2 === randomNumber3 || randomNumber3 === randomNumber1);
-
-  console.log(randomNumber1, randomNumber2, randomNumber3);
-
-  leftProduct = Product.all[randomNumber1];
-  middleProduct = Product.all[randomNumber2];
-  rightProduct = Product.all[randomNumber3];
-
-  /* this is for count how many times was shown each product(image) */
-  leftProduct.shows++;
-  middleProduct.shows++;
-  rightProduct.shows++;
-
-  console.log(leftProduct, middleProduct ,rightProduct);
-
-  leftimg.src = leftProduct.imgPath;
-  leftimg.alt = leftProduct.productName;
-  leftimg.title = leftProduct.productName;
-  middleimg.src = middleProduct.imgPath;
-  middleimg.alt = middleProduct.productName;
-  middleimg.title = middleProduct.productName;
-  rightimg.src = rightProduct.imgPath;
-  rightimg.alt = rightProduct.productName;
-  rightimg.title = rightProduct.productName;
-}
-renderImg();
-
-
-/* add event for ending the session after 25 rounds of voting  */
-/* and how many times was voted each product(image) */
-holderImg.addEventListener('click',handleClick);
-
-function handleClick (event) {
-  console.log();
-  if(totalClicks < numberOfRounds){
-
-    if(event.target.id !== 'holderImg'){
-      totalClicks++;
-      if(event.target.id === 'leftimg') {
-        leftProduct.clicks++;
-      }
-      if(event.target.id === 'middleimg') {
-        middleProduct.clicks++;
-      }
-      if(event.target.id === 'rightimg') {
-        rightProduct.clicks++;
-      }
-      renderImg();
-
-    }
-  } else if (totalClicks === numberOfRounds) {
-    totalClicks++;
-    renderResults();
-  }
-}
-
-function renderResults () {
-
-  var ul1 = document.getElementById('results');
-  for(var l = 0; l < Product.all.length; l++) {
-    var li = document.createElement('li');
-    li.textContent = `${Product.all[l].productName} had ${Product.all[l].clicks} votes and was shown ${Product.all[l].shows} times.`;
-    ul1.append(li);
-  }
-}
-
-/* helper functions for get random number */
 function randomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+// function to create object for each product
+function createObjects() {
+    for (let i = 0; i < products.length; i++) {
+        new Product(products[i], paths[i]);
+    }
+}
+// function to give the images randome values
+function randomRender() {
+    random1 = randomNumber(0, products.length - 1);
+    random2 = randomNumber(0, products.length - 1);
+    random3 = randomNumber(0, products.length - 1);
+    // if they are the same value
+    if (random1 == random2 || random1 == random3 || random2 == random3) {
+        randomRender();
+    }
+    // check if Product shown in the last round
+    if (Product.all[random1].round_ID == rounds - 1) {
+        randomRender();
+    }
+    if (Product.all[random2].round_ID == rounds - 1) {
+        randomRender();
+    }
+    if (Product.all[random3].round_ID == rounds - 1) {
+        randomRender();
+    }
+    Product.all[random1].round_ID = rounds
+    Product.all[random2].round_ID = rounds
+    Product.all[random3].round_ID = rounds
+    leftImg.src = `IMGs/${
+        products[random1]
+    }.${
+        paths[random1]
+    }`;
+    midImg.src = `IMGs/${
+        products[random2]
+    }.${
+        paths[random2]
+    }`;
+    rightImg.src = `IMGs/${
+        products[random3]
+    }.${
+        paths[random3]
+    }`;
+
+    leftProduct = Product.all[random1];
+    rightProduct = Product.all[random3];
+    midProduct = Product.all[random2];
+
+}
+// function to create html tags
+function renderResult() {
+    if (seassionEnd == false) {
+        var ul = document.getElementById('ulResult');
+        for (let i = 0; i < Product.all.length; i++) {
+            var li = document.createElement('li');
+            li.textContent = `${
+                Product.all[i].name
+            } had ${
+                Product.all[i].clicks
+            } votes and was shown ${
+                Product.all[i].views
+            } times.`
+            ul.append(li);
+        }
+        seassionEnd = true;
+    }
+}
+// function to fill tow arrais with data so we use it later in chart
+function fillDataSets() {
+    desiered = [];
+    totalClicks =[];
+    totalViews =[];
+    for (let i = 0; i < Product.all.length; i++) {
+        totalClicks.push(Product.all[i].clicks);
+        totalViews.push(Product.all[i].views);
+        desiered.push(Product.all[i].views*Product.all[i].clicks)
+    }
+}
+// Render chart
+function renderChart() {
+    fillDataSets();
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var ctxP = document.getElementById('myPieChart').getContext('2d');
+    // PieChart
+    // console.log('array is : ',desiered);
+    var pieChart = new Chart(ctxP, { // The type of chart we want to create
+        type: 'pie',
+        // The data for our dataset
+        data: {
+            labels: products,
+            datasets: [
+                {
+                    label: 'Clicks',
+                    backgroundColor: colors,
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: desiered
+                }
+            ]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+    // Bar Chart
+    var chart = new Chart(ctx, { // The type of chart we want to create
+        type: 'bar',
+        // The data for our dataset
+        data: {
+            labels: products,
+            title: {
+                display: true,
+                text: 'A Chart discribe the most wanted products'
+            },
+            datasets: [
+                {
+                    label: 'Clicks',
+                    // backgroundColor: 'rgb(255, 99, 132)',
+                    backgroundColor: colors,
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: totalClicks
+                }, {
+                    label: 'Views',
+                    backgroundColor: 'rgb(73, 197, 77)',
+                    borderColor: 'rgb(73, 197, 77)',
+                    data: totalViews
+                }
+            ]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+}
+
+// click handler function
+function handleClick(event) {
+    if (rounds < seassionLength) {
+        leftProduct.views += 1;
+        midProduct.views += 1;
+        rightProduct.views += 1;
+        if (event.target.id == 'leftImg') {
+            leftProduct.clicks += 1
+            rounds += 1;
+
+            randomRender();
+
+        } else if (event.target.id == 'rightImg') {
+            rightProduct.clicks += 1
+            rounds += 1;
+
+            randomRender();
+
+        } else if (event.target.id == 'midImg') {
+            midProduct.clicks += 1
+            rounds += 1;
+
+            randomRender();
+        } else {}
+
+    } else {
+        renderResult();
+        renderChart();
+    }
+}
+
+// //////////// MainCode ///////////////
+
+divImg.addEventListener('click', handleClick);
+createObjects();
+randomRender();

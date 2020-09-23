@@ -1,114 +1,91 @@
-#color {
-    color: #88bdbc;
-    /* for background for section*/
-    color: #254e58;
-    /* for for sidebar*/
-    color: #112d32;
-    /* for header && footer*/
-    color: #4f4a41;
-    /* for main text && BOLD*/
-    color: #6e6658;
-    /* for for paragraph text*/
-}
-*{
-    color: #f5f5f5;
-}
 
-header {
-    width: 100%;
-    height: 110px;
-    background-color: #112d32;
-}
-
-header img {
-    float: left;
-    margin: 20px 40px;
-}
-
-header h1 {
-    font-size: 2em;
-    padding: 2% 0 0 0;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 main{
-    height:682.4999px;
+    margin-left: 15%;
+    margin-right: 20%;
 }
-
-#liftside{
-    float: left;
-    height: 94%;
-    width: 20%;
-    background-color: #254e58;
-    margin: 1% 0 0 1%;
+#divIMG{
+    /* margin: 2%; */
+    display: flex;
 }
-
-#liftside h2{
-font-size: 1.8em;
-font-weight: bold;
-margin: 7% 0 4% 20%;
+.displayImg{
+    width: 320px;
+    height: 220px;
+    border: 1px gray solid;
+    margin: 0.5%;
+    position: relative;
+    /* z-index: -2; */
 }
-
-ul{
-    display: block;
-    list-style-type: disc;
-    margin-top: 1em;
-    margin-bottom: 1 em;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 40px;
+.displayImg:hover{
+    border: 4px solid;
+    border-color: red;
+    cursor: pointer;
+    -webkit-transition: border-color 2s ease-out;
+    -moz-transition: border-color 2s ease-out;
+    -o-transition: border-color 2s ease-out;
+    transition: border-color 2.5s ease-out;
 }
-
-#liftside li{
-font-size: 1em;
-padding-top: 3%;
+main h1{
+    margin: 5% 20%;
 }
-
-#rightArticle{
-    margin: 0 0 0 22%;
-    padding: 1%;
+main p{
+    margin: 5% 15%;
 }
+#divResult{
+    margin: 10% 15%;
 
-#holderImg{
-    padding: 1.4% 1.4% 2.5% 1.4%;
-    background-color: #254e58;
 }
-
-#holderImg img{
+#divResult h2{
+    font-size: 150%;
+    margin: 1%;
+}
+#divResult li{
+    line-height: 200%;
+    font-size: 120%;
+}
+/*********************************************************/
+body{
+    background-color: #f6f6f6;
+}
+#navHeader{
+    background-color: rgb(73, 197, 77);
+    display: flex;
+}
+#searchBox{
+    position: relative;
+    right: -42%;
+    margin: 2% 0%;
+}
+.liheader{
+    position: relative;
     display: inline-block;
-    width: 32%;
-    height: 300px;
+    margin-left: 10%;
+    margin-top: 8%;
+    font-size: 150%;
 }
-
-#holderImg #leftimg,#middleimg{
-    padding-right: 1.3%;
-
+a{
+    text-decoration: none;
+    color: maroon;
 }
-
-#holderP{
-
-    margin: 4% 0 0 0;
-    padding: 2%;
-    display: block;
-    background-color: #254e58;
-    height: 163px;
+#navHeader ul{
+    position: relative;
+    width: 20%;
+    right: -40%;;
 }
-
-#holderP p{
-    font-size: 1.6em;
+h1{
+    font-size: 300%;
+    margin: 1%;
+    font-family: 'Bangers', cursive;
+    color: maroon;
 }
-
-
-
-
-
-
-footer{
-    position: absolute;
-    width: 100%;
-    height: 90px;
-    background-color: #112d32;
-    text-align: center;
+#divMyChart{
+    width: 70%;
+    margin-left: 15%;
 }
-footer p{
-    padding: 2% 0 0 0;
+#myPieChart{
+    margin-top: 10%;
+}
+#h1PieChartTitle{display:  none;}
+hr{
+    margin-top: 5%;
 }
