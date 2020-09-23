@@ -5,7 +5,7 @@ main{
     margin-right: 20%;
 }
 #divIMG{
-    /* margin: 2%; */
+
     display: flex;
 }
 .displayImg{
@@ -43,7 +43,7 @@ main p{
     line-height: 200%;
     font-size: 120%;
 }
-/*********************************************************/
+
 body{
     background-color: #f6f6f6;
 }
