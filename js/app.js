@@ -159,7 +159,7 @@ function renderChart() {
     fillDataSets();
     var ctx = document.getElementById('myChart').getContext('2d');
     var ctxP = document.getElementById('myPieChart').getContext('2d');
-    // PieChart
+    
     // console.log('array is : ',desiered);
     var pieChart = new Chart(ctxP, { // The type of chart we want to create
         type: 'pie',
