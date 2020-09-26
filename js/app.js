@@ -289,25 +289,27 @@ function getData() {
         } else {
             if (rounds == seassionLength - 1) {
                 console.log(`${rounds} and ${seassionLength}`);
-                storeAttemptData();
+                getLastAttemptId();
                 renderResult();
                 renderChart();
                 rounds += 1;
+                storeAttemptData();
             }
         }
     }
     function getLastAttemptId() {
-        var lasAttempt = localStorage.getItem('attemptId'); // in Json Format
-        console.log(lasAttempt);
+        var lasAttempt = localStorage.getItem('Products'); // in Json Format
+        lasAttempt=JSON.parse(lasAttempt);
         if (typeof lasAttempt == 'undefined' || lasAttempt == null) {
-            return 1;
+            return 1;   
         }
-        return(Number(JSON.parse(lasAttempt)) + 1);
-    }
+        else {for (let i = 0; i < Product.all.length; i++) {
+           Product.all[i].clicks+=lasAttempt[i].clicks;
+           Product.all[i].views+=lasAttempt[i].views;
+        }
+        }    }
     function storeAttemptData() {
-        var atteptId = getLastAttemptId();
-        localStorage.setItem('attemptId', atteptId)
-        localStorage.setItem(String(atteptId), JSON.stringify(Product.all));
+        localStorage.setItem('Products', JSON.stringify(Product.all));
     }
 
     // /////// MainCode ///////
